@@ -123,9 +123,13 @@ Esse cenário não só testa a habilidade do candidato em Kubernetes e Azure, ma
 Referencias:
 
 https://learn.microsoft.com/pt-br/azure/aks/learn/quick-kubernetes-deploy-cli?source=recommendations
+
 https://learn.microsoft.com/pt-br/entra/identity/managed-identities-azure-resources/overview
+
 https://learn.microsoft.com/pt-br/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations
+
 https://learn.microsoft.com/pt-br/azure/aks/use-managed-identity
+
 https://learn.microsoft.com/pt-br/azure/storage/blobs/assign-azure-role-data-access?tabs=portal
 
 
