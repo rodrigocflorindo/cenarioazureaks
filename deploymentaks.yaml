@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blob-reader
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blob-reader
+  template:
+    metadata:
+      labels:
+        app: blob-reader
+    spec:
+      serviceAccountName: my-service-account
+      containers:
+      - name: blob-reader
+        image: mcr.microsoft.com/azure-cli
+        command: ["/bin/sh", "-c"]
+        args:
+        - |
+          az storage blob list --container-name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME
