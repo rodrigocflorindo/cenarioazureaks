@@ -119,3 +119,5 @@ O candidato deverá:
 - Verificar se o pod consegue acessar o Blob Storage com sucesso após a correção.
 
 Esse cenário não só testa a habilidade do candidato em Kubernetes e Azure, mas também em troubleshooting de permissões e integração entre serviços de nuvem.
+
+
