@@ -75,7 +75,7 @@ az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURC
 az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME
 ```
 
-Agora, associe a Identidade Gerenciada ao papel "Storage Blob Data Reader", mas de propósito configure-a com o escopo errado ou uma política inadequada, para simular um erro.
+Agora, associe a Identidade Gerenciada à Role "Storage Blob Data Reader", mas de propósito configure-a com o escopo errado ou uma política inadequada, para simular um erro.
 
 ```bash
 # De propósito, use um escopo de recursos incorreto ou omita as permissões necessárias
