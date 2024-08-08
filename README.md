@@ -120,4 +120,14 @@ O candidato deverá:
 
 Esse cenário não só testa a habilidade do candidato em Kubernetes e Azure, mas também em troubleshooting de permissões e integração entre serviços de nuvem.
 
+Referencias:
+
+https://learn.microsoft.com/pt-br/azure/aks/learn/quick-kubernetes-deploy-cli?source=recommendations
+https://learn.microsoft.com/pt-br/entra/identity/managed-identities-azure-resources/overview
+https://learn.microsoft.com/pt-br/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations
+https://learn.microsoft.com/pt-br/azure/aks/use-managed-identity
+
+
+
+
 
