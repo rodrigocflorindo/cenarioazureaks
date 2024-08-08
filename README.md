@@ -27,15 +27,13 @@ az aks create \
 2. Configurar o Acesso ao Cluster AKS
 Depois que o cluster for criado, você pode configurar o kubectl para acessar o cluster.
 
-bash
-Copiar código
+
 # Obter credenciais do cluster AKS
 az aks get-credentials --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME
 3. Criar uma ServiceAccount e Associar uma Identidade Gerenciada do Azure
 Em vez de uma IAM Role (como na AWS), no Azure, você usará uma Identidade Gerenciada (Managed Identity) que será associada à ServiceAccount no AKS. Vamos criar uma identidade gerenciada e uma conta de serviço Kubernetes, e então associá-los.
 
-bash
-Copiar código
+
 # Criar uma Identidade Gerenciada
 IDENTITY_NAME="MyManagedIdentity"
 az identity create --name $IDENTITY_NAME --resource-group $RESOURCE_GROUP
@@ -45,7 +43,6 @@ IDENTITY_CLIENT_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RE
 No Kubernetes, crie a ServiceAccount e associe-a à Identidade Gerenciada:
 
 yaml
-Copiar código
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -58,8 +55,7 @@ Observação: O valor <IDENTITY_CLIENT_ID> deve ser substituído pelo ID da Iden
 4. Configurar o Acesso ao Blob Storage (Análogo ao S3)
 Agora, configure o acesso ao Azure Blob Storage (equivalente ao S3). Primeiro, crie uma conta de armazenamento e um container:
 
-bash
-Copiar código
+
 STORAGE_ACCOUNT_NAME="myaksstorage$(date +%s)"
 CONTAINER_NAME="mycontainer"
 
@@ -70,15 +66,13 @@ az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURC
 az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME
 Agora, associe a Identidade Gerenciada ao papel "Storage Blob Data Reader", mas de propósito configure-a com o escopo errado ou uma política inadequada, para simular um erro.
 
-bash
-Copiar código
+
 # De propósito, use um escopo de recursos incorreto ou omita as permissões necessárias
 az role assignment create --role "Storage Blob Data Reader" --assignee $IDENTITY_CLIENT_ID --scope /subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP
 5. Deploy de um Pod com a ServiceAccount
 Por fim, crie um deployment no AKS que tenta acessar o Blob Storage usando a ServiceAccount configurada.
 
 yaml
-Copiar código
 apiVersion: apps/v1
 kind: Deployment
 metadata:
