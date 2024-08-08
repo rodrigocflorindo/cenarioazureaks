@@ -2,7 +2,7 @@
 
 Para criar um cenário similar no Azure usando o AKS (Azure Kubernetes Service) e testar as habilidades de troubleshooting de um candidato, você pode seguir os passos abaixo. A ideia é reproduzir o ambiente em que uma conta de serviço do Kubernetes (ServiceAccount) está configurada com permissões incorretas para acessar um recurso do Azure (como o Blob Storage), e o candidato precisa identificar e corrigir o problema.
 
-Passos para Configurar o Cenário no Azure
+# Passos para Configurar o Cenário no Azure
 1. Criar um Cluster AKS
 Primeiro, vamos criar um cluster AKS. Você pode usar o Azure CLI para isso.
 
